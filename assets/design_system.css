@@ -176,20 +176,7 @@ html, body {
 .glass-input:focus { background: rgba(255, 255, 255, 0.82); border-color: var(--accent); }
 
 /* Custom Date Picker (Calendar Icon) */
-input[type="date"]::-webkit-calendar-picker-indicator {
-  background: transparent;
-  bottom: 0;
-  color: transparent;
-  cursor: pointer;
-  height: auto;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: auto;
-  opacity: 0; 
-}
-.glass-date-wrap { position: relative; width: 100%; display: flex; align-items: center; }
+.glass-date-wrap { position: relative; width: 100%; display: flex; align-items: center; cursor: pointer; }
 .glass-date-wrap::after {
   content: '📅';
   position: absolute;
@@ -200,6 +187,44 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 16px;
   opacity: 0.7;
 }
+
+/* Custom Calendar Popover */
+.calendar-menu {
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  background: var(--surface-opaque);
+  backdrop-filter: blur(20px);
+  border: 1.2px solid var(--border-glass);
+  border-radius: 16px;
+  margin-top: 8px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  overflow: hidden;
+  z-index: 100;
+  display: none;
+  padding: 16px;
+}
+.calendar-menu.active { display: block; }
+.cal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 12px;
+}
+.cal-btn {
+  background: rgba(0,0,0,0.04); border: none; width: 28px; height: 28px;
+  border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--text); transition: background 0.2s;
+}
+.cal-btn:hover { background: rgba(0,0,0,0.08); }
+.cal-title { font-weight: 600; font-size: 14px; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; }
+.cal-day-name { font-size: 10px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px; }
+.cal-date {
+  aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; border-radius: 8px; cursor: pointer; transition: all 0.2s;
+  color: var(--text);
+}
+.cal-date:hover:not(.empty) { background: rgba(0,0,0,0.04); }
+.cal-date.active { background: var(--accent); color: #fff; font-weight: 500; }
+.cal-date.empty { cursor: default; }
 
 /* Custom Searchable Dropdown */
 .dropdown-wrap { position: relative; width: 100%; }
