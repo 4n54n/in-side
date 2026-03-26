@@ -1,0 +1,35 @@
+name: app
+description: "Mini-App Host — Glassmorphism Shell"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  flutter_inappwebview: ^6.0.0
+  file_picker: ^8.1.7
+  archive: ^3.6.1
+  path_provider: ^2.1.5
+  shared_preferences: ^2.3.3
+  google_fonts: ^6.2.1
+  http: ^1.2.2
+  permission_handler: ^11.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  image_path: "logo.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/design_system.css

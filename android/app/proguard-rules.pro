@@ -1,0 +1,3 @@
+-dontwarn android.window.**
+-dontwarn android.window.BackEvent
+-dontwarn io.flutter.embedding.android.**

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Allow all HTTPS traffic (default) -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+    <!-- Allow KSRTC Swift API domains -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">onlineksrtcswift.com</domain>
+        <domain includeSubdomains="true">assets.onlineksrtcswift.com</domain>
+    </domain-config>
+</network-security-config>
